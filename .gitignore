@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+.env
+.env.*
+!.env.example
+data/raw/
+artifacts/*.joblib
+artifacts/*.npy
+artifacts/index_manifest.json
+work/
+*.log
+.impeccable/

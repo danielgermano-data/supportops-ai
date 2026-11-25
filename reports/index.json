@@ -1,0 +1,8 @@
+{
+  "embedding_model": "embeddinggemma",
+  "documents": 12,
+  "dimensions": 768,
+  "knowledge_sha256": "f526cb3214a173412616ceb363e9df6469b56c1bd9142ed5e18194d5262b4364",
+  "source": "actual local Ollama embeddings",
+  "chunking": "One short self-contained bilingual runbook per chunk"
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Portfólio de Daniel Germano: treinamento reproduzível de Machine Learning, busca em procedimentos e assistência com IA local.">
+  <meta name="theme-color" content="#164b3d">
+  <title>SupportOps AI · Daniel Germano</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23164b3d'/%3E%3Cpath d='M11 15h18M11 21h12M11 27h8' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#workspace">Pular para o laboratório</a>
+<header class="topbar">
+  <a class="brand" href="./" aria-label="SupportOps AI início"><svg viewBox="0 0 36 36" width="34" height="34" aria-hidden="true"><rect width="36" height="36" rx="10" fill="currentColor"/><path d="M10 12h16M10 18h11M10 24h7" stroke="white" stroke-width="2.5"/></svg><span>SupportOps <strong>AI</strong></span></a>
+  <nav aria-label="Navegação"><a href="#workspace">Laboratório</a><a href="#evaluation">Avaliação</a><a href="https://github.com/danielgermano-data/supportops-ai" target="_blank" rel="noopener noreferrer">Código no GitHub</a></nav>
+</header>
+<main>
+  <section class="intro">
+    <div><h1>Analisar um chamado</h1><p>Da intenção à evidência: experimente um modelo treinado e consulte os procedimentos que sustentam uma resposta.</p></div>
+    <p class="author">Projeto de portfólio<br><a href="https://www.linkedin.com/in/danielgerm/" target="_blank" rel="noopener noreferrer">Daniel Germano</a></p>
+  </section>
+  <section id="workspace" class="workspace" aria-label="Laboratório de suporte">
+    <div class="input-pane">
+      <div class="pane-title"><h2>Seu chamado</h2><span class="mode">Execução no navegador</span></div>
+      <p id="input-help">O classificador foi treinado em <strong>inglês</strong>. Use os exemplos ou escreva em inglês. A busca e o RAG aceitam português. Use apenas situações fictícias.</p>
+      <form id="ticket-form">
+        <label for="ticket">Descreva o problema</label>
+        <textarea id="ticket" name="ticket" minlength="3" maxlength="2000" rows="6" aria-describedby="input-help" required placeholder="My card was charged twice for the same purchase."></textarea>
+        <div class="input-footer"><span id="counter">0 / 2000</span><button id="analyze" type="submit" disabled>Analisar chamado</button></div>
+      </form>
+      <p class="example-label">Experimente um caso</p>
+      <div class="examples"><button type="button" data-example="My card was charged twice for the same purchase.">Cobrança duplicada</button><button type="button" data-example="I lost my bank card and need to freeze it.">Cartão perdido</button><button type="button" data-example="My transfer is still pending and the recipient has not received the money.">Transferência pendente</button><button type="button" data-example="I forgot the passcode to access my banking app.">Acesso ao aplicativo</button></div>
+      <p id="status" class="status" role="status" aria-live="polite">Carregando os pesos do modelo treinado…</p>
+      <details class="method"><summary>O que acontece com o texto?</summary><p>A classificação e a busca são calculadas neste navegador. A geração opcional usa um modelo baixado para seu dispositivo. Não há envio do chamado a uma API paga. O carregamento inicial busca arquivos de software e modelos em serviços externos.</p></details>
+    </div>
+    <div class="output-pane" aria-live="polite">
+      <div id="empty" class="empty"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden="true"><rect x="10" y="7" width="31" height="38" rx="5" stroke="currentColor" stroke-width="1.5"/><path d="M18 18h15M18 25h15M18 32h9" stroke="currentColor" stroke-width="1.5"/></svg><h2>Uma decisão que você pode conferir</h2><p>Escolha um exemplo para ver a intenção, as alternativas e as fontes recuperadas.</p><ol><li>Classificação pelo modelo treinado</li><li>Consulta aos procedimentos demonstrativos</li><li>Resposta opcional com IA e citações</li></ol></div>
+      <div id="result" hidden>
+        <div class="result-heading"><h2>Resultado da triagem</h2><span id="decision" class="decision"></span></div>
+        <h3 id="intent"></h3><p id="confidence-note" class="muted"></p><div id="alternatives" class="alternatives"></div>
+        <div class="source-heading"><h3>Procedimentos encontrados</h3><span>Busca lexical BM25</span></div>
+        <div id="sources"></div>
+        <div class="ai-area"><h3>Preparar uma resposta com IA</h3><p>Geração real no seu dispositivo, com as fontes acima. Requer WebGPU e download de aproximadamente 1 GB. O modelo usa cerca de 1,6 GB de memória de GPU. Pode demorar e o resultado precisa de revisão.</p><button id="generate" type="button">Carregar IA e gerar resposta</button><button id="local-agent" type="button" hidden>Executar agente local com ferramentas</button><p id="ai-status" role="status" aria-live="polite"></p><div id="answer" class="answer" hidden></div></div>
+      </div>
+    </div>
+  </section>
+  <section id="evaluation" class="evaluation">
+    <div class="section-heading"><div><h2>O modelo foi treinado. Os números são verificáveis.</h2><p>TF-IDF + regressão logística em 77 intenções do BANKING77. Hiperparâmetros e limiar escolhidos na validação; métricas abaixo calculadas no teste separado.</p></div><a href="training.json" target="_blank" rel="noopener">Abrir relatório de treino</a></div>
+    <dl class="metrics"><div><dt>Macro-F1 no teste</dt><dd id="metric-f1">—</dd></div><div><dt>Acurácia no teste</dt><dd id="metric-accuracy">—</dd></div><div><dt>Exemplos de teste</dt><dd id="metric-size">—</dd></div><div><dt>Baseline majoritário</dt><dd id="metric-baseline">—</dd></div></dl>
+    <div class="evaluation-grid"><div><h3>Separação e limites</h3><p id="split-description"></p><p>As pontuações não são uma garantia de acerto. O classificador é em inglês e não foi validado para clientes reais. A base de procedimentos é ilustrativa e não representa a política de um banco.</p></div><div><h3>RAG e agente local</h3><p>A implementação Python usa embeddings reais do Ollama e um agente com duas ferramentas de leitura. As execuções registradas estão disponíveis para auditoria; elas não são respostas ao vivo desta página.</p><a href="live_evaluation.json" target="_blank" rel="noopener">Consultar execuções reais registradas</a></div></div>
+  </section>
+</main>
+<footer><span>SupportOps AI · Um laboratório de Daniel Germano</span><span>Dados: <a href="https://huggingface.co/datasets/PolyAI/banking77" target="_blank" rel="noopener noreferrer">BANKING77 / PolyAI · CC BY 4.0</a></span></footer>
+</body>
+</html>

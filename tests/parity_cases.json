@@ -1,0 +1,797 @@
+[
+  {
+    "text": "How do I locate my card?",
+    "expected": {
+      "intent": null,
+      "accepted": false,
+      "reason": "low_score",
+      "top": [
+        {
+          "intent": "get_physical_card",
+          "score": 0.130836
+        },
+        {
+          "intent": "card_linking",
+          "score": 0.097977
+        },
+        {
+          "intent": "activate_my_card",
+          "score": 0.087333
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "I still have not received my new card, I ordered over a week ago.",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.972371
+        },
+        {
+          "intent": "balance_not_updated_after_cheque_or_cash_deposit",
+          "score": 0.003312
+        },
+        {
+          "intent": "card_linking",
+          "score": 0.00212
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "I ordered a card but it has not arrived. Help please!",
+    "expected": {
+      "intent": "transfer_not_received_by_recipient",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "transfer_not_received_by_recipient",
+          "score": 0.321615
+        },
+        {
+          "intent": "card_arrival",
+          "score": 0.118702
+        },
+        {
+          "intent": "cash_withdrawal_not_recognised",
+          "score": 0.042793
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "Is there a way to know when my card will arrive?",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.236732
+        },
+        {
+          "intent": "card_delivery_estimate",
+          "score": 0.205126
+        },
+        {
+          "intent": "card_payment_fee_charged",
+          "score": 0.099422
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "My card has not arrived yet.",
+    "expected": {
+      "intent": "transfer_not_received_by_recipient",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "transfer_not_received_by_recipient",
+          "score": 0.336837
+        },
+        {
+          "intent": "card_arrival",
+          "score": 0.172095
+        },
+        {
+          "intent": "lost_or_stolen_card",
+          "score": 0.049797
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "When will I get my card?",
+    "expected": {
+      "intent": "card_delivery_estimate",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_delivery_estimate",
+          "score": 0.785186
+        },
+        {
+          "intent": "card_arrival",
+          "score": 0.070153
+        },
+        {
+          "intent": "order_physical_card",
+          "score": 0.025702
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "Do you know if there is a tracking number for the new card you sent me?",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.922552
+        },
+        {
+          "intent": "card_about_to_expire",
+          "score": 0.004844
+        },
+        {
+          "intent": "card_linking",
+          "score": 0.003983
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "i have not received my card",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.516686
+        },
+        {
+          "intent": "card_not_working",
+          "score": 0.059815
+        },
+        {
+          "intent": "card_delivery_estimate",
+          "score": 0.028571
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "still waiting on that card",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.369485
+        },
+        {
+          "intent": "pending_card_payment",
+          "score": 0.062943
+        },
+        {
+          "intent": "pending_cash_withdrawal",
+          "score": 0.048187
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "Is it normal to have to wait over a week for my new card?",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.614389
+        },
+        {
+          "intent": "activate_my_card",
+          "score": 0.035789
+        },
+        {
+          "intent": "card_linking",
+          "score": 0.030386
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "How do I track my card?",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.636482
+        },
+        {
+          "intent": "verify_source_of_funds",
+          "score": 0.028596
+        },
+        {
+          "intent": "card_not_working",
+          "score": 0.028496
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "How long does a card delivery take?",
+    "expected": {
+      "intent": "card_delivery_estimate",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_delivery_estimate",
+          "score": 0.64761
+        },
+        {
+          "intent": "card_arrival",
+          "score": 0.136989
+        },
+        {
+          "intent": "order_physical_card",
+          "score": 0.028398
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "I still don't have my card after 2 weeks.  What should I do?",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.51583
+        },
+        {
+          "intent": "lost_or_stolen_phone",
+          "score": 0.07752
+        },
+        {
+          "intent": "card_swallowed",
+          "score": 0.072843
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "still waiting on my new card",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.952667
+        },
+        {
+          "intent": "activate_my_card",
+          "score": 0.010302
+        },
+        {
+          "intent": "card_linking",
+          "score": 0.00485
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "I am still waiting for my card after 1 week.  Is this ok?",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.703097
+        },
+        {
+          "intent": "Refund_not_showing_up",
+          "score": 0.016916
+        },
+        {
+          "intent": "pending_transfer",
+          "score": 0.016336
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "I have been waiting longer than expected for my bank card, could you provide information on when it will arrive?",
+    "expected": {
+      "intent": null,
+      "accepted": false,
+      "reason": "low_score",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.107803
+        },
+        {
+          "intent": "card_delivery_estimate",
+          "score": 0.066605
+        },
+        {
+          "intent": "transfer_not_received_by_recipient",
+          "score": 0.043078
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "I've been waiting longer than expected for my card.",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.216869
+        },
+        {
+          "intent": "card_payment_fee_charged",
+          "score": 0.060325
+        },
+        {
+          "intent": "wrong_exchange_rate_for_cash_withdrawal",
+          "score": 0.043032
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "Why hasn't my card been delivered?",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.500798
+        },
+        {
+          "intent": "card_delivery_estimate",
+          "score": 0.062165
+        },
+        {
+          "intent": "pending_card_payment",
+          "score": 0.036286
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "Where is my new card? I have been waiting a week!",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.965268
+        },
+        {
+          "intent": "card_linking",
+          "score": 0.003001
+        },
+        {
+          "intent": "activate_my_card",
+          "score": 0.00285
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "My card still hasn't arrived after 2 weeks. Is it lost?",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.845698
+        },
+        {
+          "intent": "transfer_not_received_by_recipient",
+          "score": 0.016677
+        },
+        {
+          "intent": "lost_or_stolen_card",
+          "score": 0.010942
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "I did not get my card yet, is it lost?",
+    "expected": {
+      "intent": null,
+      "accepted": false,
+      "reason": "low_score",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.164197
+        },
+        {
+          "intent": "card_delivery_estimate",
+          "score": 0.07221
+        },
+        {
+          "intent": "lost_or_stolen_card",
+          "score": 0.05511
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "Status of the card I ordered.",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.589038
+        },
+        {
+          "intent": "lost_or_stolen_card",
+          "score": 0.032854
+        },
+        {
+          "intent": "card_not_working",
+          "score": 0.019136
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "How long should my new card take to arrive?",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.503335
+        },
+        {
+          "intent": "card_delivery_estimate",
+          "score": 0.146968
+        },
+        {
+          "intent": "activate_my_card",
+          "score": 0.081891
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "I ordered my card 2 weeks ago and it still isn't here? What do I do?",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.691787
+        },
+        {
+          "intent": "card_delivery_estimate",
+          "score": 0.026437
+        },
+        {
+          "intent": "card_not_working",
+          "score": 0.02356
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "My card has not arrived yet, where is it?",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.326183
+        },
+        {
+          "intent": "transfer_not_received_by_recipient",
+          "score": 0.187938
+        },
+        {
+          "intent": "balance_not_updated_after_bank_transfer",
+          "score": 0.032256
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "What is the tracking number for my card that was mailed?",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.922736
+        },
+        {
+          "intent": "card_not_working",
+          "score": 0.005532
+        },
+        {
+          "intent": "card_delivery_estimate",
+          "score": 0.004138
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "I think something went wrong with my card delivery as I haven't received it yet.",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.200313
+        },
+        {
+          "intent": "card_delivery_estimate",
+          "score": 0.158644
+        },
+        {
+          "intent": "card_not_working",
+          "score": 0.061574
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "I'm still waiting for delivery of my new card, why is it taking so long?",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.78256
+        },
+        {
+          "intent": "pending_transfer",
+          "score": 0.045737
+        },
+        {
+          "intent": "transfer_not_received_by_recipient",
+          "score": 0.035208
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "I ordered a card a week ago, and it's still not here. What do I do?",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.424331
+        },
+        {
+          "intent": "balance_not_updated_after_cheque_or_cash_deposit",
+          "score": 0.067308
+        },
+        {
+          "intent": "request_refund",
+          "score": 0.041504
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "i want to track the card you sent",
+    "expected": {
+      "intent": "card_arrival",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "card_arrival",
+          "score": 0.968227
+        },
+        {
+          "intent": "card_linking",
+          "score": 0.001532
+        },
+        {
+          "intent": "visa_or_mastercard",
+          "score": 0.001216
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "zxqv zxqvzxqv",
+    "expected": {
+      "intent": null,
+      "accepted": false,
+      "reason": "no_known_terms",
+      "top": [],
+      "language": "en"
+    }
+  },
+  {
+    "text": "My card was charged twice for the same purchase.",
+    "expected": {
+      "intent": "transaction_charged_twice",
+      "accepted": true,
+      "reason": "accepted",
+      "top": [
+        {
+          "intent": "transaction_charged_twice",
+          "score": 0.991483
+        },
+        {
+          "intent": "card_payment_fee_charged",
+          "score": 0.001277
+        },
+        {
+          "intent": "card_payment_wrong_exchange_rate",
+          "score": 0.000837
+        }
+      ],
+      "threshold": 0.2,
+      "language": "en",
+      "model_version": "banking77-tfidf-lr-v1"
+    }
+  },
+  {
+    "text": "Perdi meu cartão e preciso de ajuda.",
+    "expected": {
+      "intent": null,
+      "accepted": false,
+      "reason": "no_known_terms",
+      "top": [],
+      "language": "en"
+    }
+  }
+]
