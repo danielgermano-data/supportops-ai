@@ -15,13 +15,15 @@ Projeto educacional de portfólio de **Daniel Germano**, desenvolvido com assist
 | Classificação em 77 intenções | Pesos reais executados no navegador | Mesmos pesos em Python |
 | Idioma do classificador | Inglês | Inglês; o agente normaliza a entrada com tradução por LLM |
 | Recuperação de documentos | BM25 lexical em 12 procedimentos bilíngues | Embeddings reais do Ollama com `embeddinggemma` |
-| Geração de resposta | Opcional com WebLLM e WebGPU no dispositivo; pode exigir revisão | Ollama `granite4.1:3b`, com fontes recuperadas |
+| Geração de resposta | Rascunho experimental em inglês com WebLLM/WebGPU; exige revisão | Ollama `granite4.1:3b`, em português, com fontes recuperadas |
 | Agente com ferramentas | Código e registros auditáveis no repositório | Chamadas reais a `classify_ticket` e `search_knowledge` |
 | Custo de API | Nenhuma API paga; download/processamento no dispositivo | Nenhuma API paga; requer hardware, modelos e energia locais |
 
 A página pública é estática. Ela não usa respostas pré-calculadas para fingir inferência, não conecta ao Ollama de quem visita e não hospeda o backend Python. Os registros JSON são execuções anteriores explicitamente identificadas. A geração no navegador depende do hardware e é uma via experimental: verificar IDs de citações não prova que cada frase está fundamentada.
 
 A geração opcional usa `Qwen2.5-1.5B-Instruct-q4f16_1-MLC` via WebLLM. O primeiro carregamento baixa aproximadamente 1 GB e o registro do modelo estima cerca de 1,6 GB de memória de GPU. Classificação e busca funcionam sem carregar esse LLM. [Registro oficial de modelos](https://github.com/mlc-ai/web-llm/blob/v0.2.89/src/config.ts).
+
+O gerador do navegador recebe apenas o primeiro procedimento da busca para reduzir mistura de orientações de assuntos distintos. A seleção de um ID válido não verifica se o texto gerado usa a fonte corretamente; erros de fundamentação continuam possíveis. A referência local é mais completa e tem seus próprios resultados e limites registrados.
 
 ## Resultado do treinamento executado
 
