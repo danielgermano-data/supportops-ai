@@ -1,0 +1,44 @@
+{
+  "recorded_at": "2026-11-25T15:52:54.407892+00:00",
+  "source": "manual observations of actual in-browser WebLLM execution via browser UI on 2026-11-25",
+  "scope": "development smoke observations, not an independent quality or safety benchmark",
+  "current_model": "Qwen2.5-1.5B-Instruct-q4f16_1-MLC",
+  "observations": [
+    {
+      "configuration": "0.5B free-text output",
+      "case": "duplicate purchase",
+      "visible_result": "withheld because no valid citation IDs",
+      "human_review": "No generated answer presented."
+    },
+    {
+      "configuration": "0.5B structured output, two procedures",
+      "case": "duplicate purchase",
+      "visible_result": "English restatement with RB-01 and RB-03",
+      "human_review": "Weak answer; language requirement not met and unrelated source selected. Model replaced."
+    },
+    {
+      "configuration": "1.5B structured output, two procedures",
+      "case": "duplicate purchase",
+      "visible_result": "English response suggested blocking both transactions and cited RB-03",
+      "human_review": "Grounding failure: blocking transactions is not supported by RB-03. Reduced generation context to the top-one retrieved procedure and retained experimental labeling."
+    },
+    {
+      "configuration": "1.5B structured output, top-one procedure, English",
+      "case": "My card was charged twice for the same purchase.",
+      "visible_answer": "The transaction is likely a duplicate charge. To investigate further, please check your transactions on the official app and escalate to human support for review.",
+      "selected_citations": [
+        "RB-03",
+        "RB-03",
+        "RB-03"
+      ],
+      "human_review": "The app-check and escalation advice is in RB-03. The opening still infers a likely duplicate without confirmation; a human should revise it. Repeated displayed IDs were deduplicated in the final UI."
+    },
+    {
+      "configuration": "1.5B structured output, top-one procedure, English",
+      "case": "I lost my bank card and need to freeze it.",
+      "visible_result": "withheld because citation verification failed",
+      "human_review": "No raw draft was displayed; this does not establish its factual quality."
+    }
+  ],
+  "conclusion": "Browser generation runs on-device but is unreliable and remains an optional experimental draft. Citation-ID checks do not verify semantic grounding. Classification and retrieval do not depend on the LLM."
+}

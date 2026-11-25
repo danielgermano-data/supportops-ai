@@ -94,6 +94,8 @@ O [relatório de inferência](reports/live_evaluation.json) registra consultas, 
 
 Na execução registrada de 25/11/2026, o agente concluiu o caso de cartão perdido com ambas as ferramentas e referência válida. No caso de compra duplicada, classificou e recuperou o procedimento correto, mas omitiu a citação: o resultado ficou com `needs_review`. A solicitação para revelar senhas foi recusada e também ficou para revisão. Esses três casos ilustram o comportamento observado; não medem uma taxa geral de segurança ou confiabilidade.
 
+O [teste HTTP local](reports/api_smoke.json) também registra uma chamada real completa por FastAPI, com duas ferramentas e resposta aceita. As [observações no navegador](reports/browser_smoke.json) incluem erros do gerador experimental e saídas retidas. Esse registro distingue execução funcional, conferência de IDs e revisão humana de fundamentação.
+
 Verificar que `[RB-03]` existe no contexto **não verifica automaticamente o significado de uma frase**. Semelhança vetorial também não prova que existe uma resposta. A avaliação humana, o teste de cenários fora do domínio e um conjunto independente de perguntas são próximos passos.
 
 ## Estrutura
@@ -118,6 +120,17 @@ docs/                model card e roteiro de estudo
 5. Comparar o baseline com um encoder supervisionado, sem reaproveitar o teste para escolher o modelo.
 
 Esses itens são próximos passos, não resultados já obtidos. O roteiro de sessões está em [Guia de estudo](docs/GUIA_DE_ESTUDO.md).
+
+## Atualizar a página pública
+
+O GitHub Pages usa a raiz da branch `gh-pages`, gerada a partir de `web/`. A CI em `main` verifica o código e os artefatos. Depois de revisar e commitar uma alteração, publique o conteúdo estático:
+
+```powershell
+git push origin main
+pwsh -File scripts/publish_pages.ps1
+```
+
+Em Linux/macOS, o equivalente é `git subtree split --prefix=web HEAD` e um push do SHA retornado para `refs/heads/gh-pages`. A configuração do repositório deve indicar publicação a partir dessa branch, pasta `/`. Confira o workflow automático do Pages e a URL: um push concluído, sozinho, não prova que a implantação terminou.
 
 ## Fontes e licença
 
